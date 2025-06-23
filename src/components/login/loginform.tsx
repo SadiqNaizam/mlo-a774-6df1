@@ -64,9 +64,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
   return (
     <Card className={cn('w-[400px]', className)}>
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
+        <CardTitle className="text-2xl font-bold">Seal the Pact</CardTitle>
         <CardDescription>
-          Enter your credentials to access your account.
+          Your credentials are the key to the shadows.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -99,7 +99,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
                       asChild
                     >
                       {/* Using an anchor tag for semantic correctness, can be a Link from react-router-dom too */}
-                      <a href="#">Forgot password?</a>
+                      <a href="#">Memory fails you?</a>
                     </Button>
                   </div>
                   <FormControl>
@@ -112,20 +112,20 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
 
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Sign In
+              Descend
             </Button>
           </form>
         </Form>
       </CardContent>
       <CardFooter className="flex justify-center">
         <p className="text-sm text-center text-muted-foreground">
-          Don&apos;t have an account?{' '}
+          Not yet bound?{' '}
           <Button
             type="button"
             variant="link"
             className="p-0 h-auto font-semibold text-primary hover:underline"
           >
-            Sign Up
+            Seal your fate
           </Button>
         </p>
       </CardFooter>
