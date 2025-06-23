@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -61,13 +62,16 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
   };
 
   return (
-    <Card className={cn('w-[320px]', className)}>
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold text-center">Welcome</CardTitle>
+    <Card className={cn('w-[400px]', className)}>
+      <CardHeader className="text-center">
+        <CardTitle className="text-2xl font-bold">Sign In</CardTitle>
+        <CardDescription>
+          Enter your credentials to access your account.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="email"
@@ -75,53 +79,53 @@ export const LoginForm: React.FC<LoginFormProps> = ({ className }) => {
                 <FormItem>
                   <FormLabel>Email Address</FormLabel>
                   <FormControl>
-                    <Input {...field} className="border-x-0 border-t-0 rounded-none px-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 border-b-input" />
+                    <Input placeholder="name@example.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <div>
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <div className="flex items-center">
                     <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" {...field} className="border-x-0 border-t-0 rounded-none px-0 shadow-none focus-visible:ring-0 focus-visible:ring-offset-0 border-b-input" />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="text-right mt-2">
-                 <Button
-                    type="button"
-                    variant="link"
-                    className="p-0 h-auto text-sm font-normal text-muted-foreground hover:text-primary"
-                  >
-                    Forgot Password
-                  </Button>
-              </div>
-            </div>
+                    <Button
+                      type="button"
+                      variant="link"
+                      className="p-0 h-auto ml-auto text-sm font-normal text-muted-foreground hover:text-primary hover:no-underline"
+                      asChild
+                    >
+                      {/* Using an anchor tag for semantic correctness, can be a Link from react-router-dom too */}
+                      <a href="#">Forgot password?</a>
+                    </Button>
+                  </div>
+                  <FormControl>
+                    <Input type="password" placeholder="••••••••" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Login
+              Sign In
             </Button>
           </form>
         </Form>
       </CardContent>
       <CardFooter className="flex justify-center">
         <p className="text-sm text-center text-muted-foreground">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Button
             type="button"
             variant="link"
-            className="p-0 h-auto font-semibold text-primary"
+            className="p-0 h-auto font-semibold text-primary hover:underline"
           >
-            SignUp
+            Sign Up
           </Button>
         </p>
       </CardFooter>
